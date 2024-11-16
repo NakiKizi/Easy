@@ -9,3 +9,35 @@
     <a>Попыток было много. Большинство неудачные, но в итоге получилось понять, как работает <a href=https://t.me/fioletpid> Liveweave. <br>
 </body>
 </html>
+
+p {
+    -webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+-webkit-box-shadow: -2px -2px 20px #8A2BE2;
+-moz-box-shadow: -2px -2px 20px #8A2BE2;
+box-shadow: -2px -2px 20px #8A2BE2;
+text-shadow: 4px 4px 2px #87CEEB;
+border: 0px solid #000000;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 25pt;
+color: #000000;
+text-align: center;
+}
+a {
+-webkit-transform: skew(-4deg);
+-moz-transform: skew(-4deg);
+-o-transform: skew(-4deg);
+border: 0px solid #000000;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 10pt;
+color: #000000;
+}
+article a {
+    color: #9b2d30;
+} 
+a:link,
+a:visited {
+    color: #a9203e;
+    font-weight: bold;
+}
