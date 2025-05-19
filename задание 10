@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Навигационное меню</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e74c3c;
+      font-family: 'Lato', sans-serif;
+    }
+    nav {
+      width: 30%;
+      margin: 10% auto;
+      background: #eee;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      width: 100%;
+    }
+    nav li a {
+      display: block;
+      padding: 20px;
+      text-decoration: none;
+      color: #444;
+    }
+    nav li a:hover {
+      background-color: #ccc;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="">Главная</a></li>
+      <li><a href="">Обо мне</a></li>
+      <li><a href="">Работа</a></li>
+      <li><a href="">Контакты</a></li>
+    </ul>
+  </nav>
+</body>
