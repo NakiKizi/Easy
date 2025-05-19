@@ -1,0 +1,2 @@
+<marquee behavior="alternate" bgcolor="#rgb(106, 98, 226)" direction="right" style="color: #fff; font-size: 20px; font-weight: bolder; line-height: 150%; text-shadow: #000000 0px 1px 1px;">Покатушки</marquee>
+<marquee onmouseout="this.start()" onmouseover="this.stop()"><span style="color: rgb(55, 0, 194);;"><b>Не трогай меня!</b></span></marquee>
