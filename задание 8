@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.test {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    position: relative;
+    -webkit-animation: iliketomoveit 5s infinite;
+    animation: iliketomoveit 5s infinite;
+}
+@-webkit-keyframes iliketomoveit { 
+    0% {left: 10px;}
+    25% {
+        left: 10px;
+        background: rgb(203, 133, 250);
+    }
+    75% {
+        left: 200px;
+    }
+    100% {
+        left: 0px;
+        background: rgb(226, 127, 185);
+    }
+}
+
+@keyframes iliketomoveit {
+    0% {
+        left: 0px;
+    }
+    25% {
+        left: 400px;
+        background: rgb(203, 133, 250);
+    }
+    50% {
+        down: 150px
+        
+    }
+    75% {
+        left: 200px;
+    }
+    100% {
+        left: 0px;
+        background: rgb(226, 127, 185);
+    }
+}
+</style>
+</head>
+<body>
+<div class="test"></div>
+</body>
+</html>
