@@ -1,0 +1,131 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея вращающихся изображений</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="image-container">
+        <span style="--i: 1">
+            <img src="https://steamuserimages-a.akamaihd.net/ugc/2287330243558611400/1C54684690AD30F772AAAF5EE4CA99BBF5AFE4F7/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true" title="image">
+        </span>
+        <span style="--i: 2">
+            <img src="https://distribution.faceit-cdn.net/images/c5f26338-e2e6-402e-9566-317507c6d5cf.jpeg" title="image">
+        </span>
+        <span style="--i: 3">
+            <img src="https://i.ytimg.com/vi/u3I9McVn4Ss/maxresdefault.jpg" title="image">
+        </span>
+        <span style="--i: 4">
+            <img src="https://avatars.mds.yandex.net/i?id=2b67e7bdbc73e727d46aa863c1b62af3_l-12569441-images-thumbs&n=13" title="image">
+        </span>
+        <span style="--i: 5">
+            <img src="https://avatars.mds.yandex.net/get-ydo/12829871/2a000001949467b8e4223eae5d31bb78cd4e/diploma" title="image">
+        </span>
+        <span style="--i: 6">
+            <img src="https://yt3.ggpht.com/ytc/AKedOLTwEims4D2Nxd1LoDWdK9W0zp7EYhM6qW0vPpxe6XA=s900-c-k-c0x00ffffff-no-rj" title="image">
+        </span>
+        <span style="--i: 7">
+            <img src="https://i.pinimg.com/736x/97/40/f3/9740f334d0b68a2fff098086c6183156.jpg" title="image">
+        </span>
+        <span style="--i: 8">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_kO8uPfrXJXM-pGVUvFAbJ7tV7_Vd6UKkQKoQSpC3dhFw=s900-c-k-c0x00ffffff-no-rj" title="image">
+        </span>
+    </div>
+    <div class="btn-container">
+        <button class="btn" id="prev">Прошлый</button>
+        <button class="btn" id="next">Следующий</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+css:
+body{
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    text-align: center;
+    overflow: hidden;
+}
+.image-container{
+    position:relative;
+    width:200px;
+    height:200px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.7s;
+}
+.image-container span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+}
+.image-container span img{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    border-radius: 3px;
+}
+.btn-container{
+    position:relative;
+    width:80%;
+}
+.btn{
+    position: absolute;
+    bottom:-80px;
+    background-color: rgb(120, 22, 158);
+    color:white;
+    padding:10px 20px;
+    border-radius: 5px;
+    border:none;
+    cursor: pointer;
+}
+.btn:hover{
+    filter:brightness(1.5);
+}
+#prev{
+    left:20%;
+}
+#next{
+    right:20%;
+}
+
+java:
+const imageCon = document.querySelector(".image-container");
+const prevEl = document.getElementById("prev");
+const nextEl = document.getElementById("next");
+let x = 0;
+let timer = null;
+prevEl.addEventListener("click", () => {
+    x += 45;
+    if (timer !== null) {
+        clearTimeout(timer);
+        timer = null;
+    }
+    updateImage();
+});
+nextEl.addEventListener("click", () => {
+    x -= 45;
+    if (timer !== null) {
+        clearTimeout(timer);
+        timer = null;
+    }
+    updateImage();
+});
+function updateImage() {
+    imageCon.style.transform = `perspective(1000px) rotateY(${x}deg)`;
+    timer = setTimeout(() => {
+        x -= 45;
+        updateImage();
+    }, 3000);
+}
+updateImage();
